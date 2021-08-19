@@ -14,7 +14,7 @@ toc: false
 !! Warning, this only works on ubuntu/debain distributions. It has been tested on ubuntu 20.04 only! <br> 
 !! Other people can inspect and manually copy the elements of the files! 
 
-## Installing
+## Installation
 
 You will need `make` 
 
