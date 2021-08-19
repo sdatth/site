@@ -14,7 +14,7 @@
       
       <guid>https://srikanta.me/blog/dotfiles/</guid>
       <description>!! Warning, this only works on ubuntu/debain distributions. It has been tested on ubuntu 20.04 only! !! Other people can inspect and manually copy the elements of the files!
-Installing You will need make
+Installation You will need make
 Clone into your $HOME directory or ~
 git clone https://github.com/sdatth/dotfiles.git $HOME/ # OR git clone https://gitlab.com/sdatth/dotfiles.git $HOME/  Run the make command to get my configuration
 cd dotfiles make install  Compile alacritty from scratch
