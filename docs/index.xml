@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>srikanta</title>
+    <link>https://srikanta.me/</link>
+    <description>Recent content on srikanta</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Aug 2021 13:06:28 +0530</lastBuildDate>
+    
+	<atom:link href="https://srikanta.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>:dotfiles</title>
+      <link>https://srikanta.me/blog/dotfiles/</link>
+      <pubDate>Thu, 19 Aug 2021 13:06:28 +0530</pubDate>
+      
+      <guid>https://srikanta.me/blog/dotfiles/</guid>
+      <description>!! Warning, this only works on ubuntu/debain distributions. It has been tested on ubuntu 20.04 only! !! Other people can inspect and manually copy the elements of the files!
+Installing You will need make
+Clone into your $HOME directory or ~
+git clone https://github.com/sdatth/dotfiles.git $HOME/ # OR git clone https://gitlab.com/sdatth/dotfiles.git $HOME/  Run the make command to get my configuration
+cd dotfiles make install  Compile alacritty from scratch
+# this just follows all the steps from the official repo &amp;quot;https://github.</description>
+    </item>
+    
+  </channel>
+</rss>
