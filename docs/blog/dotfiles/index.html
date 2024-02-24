@@ -46,7 +46,7 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/srikanta.me"
+            "@id": "https:\/\/srikanta.me\/"
       },
       "articleSection" : "blog",
       "name" : ":dotfiles",
@@ -62,7 +62,7 @@
       "datePublished": "2021-08-19 13:06:28 \u002b0530 IST",
       "dateModified" : "2021-08-19 13:06:28 \u002b0530 IST",
       "url" : "https:\/\/srikanta.me\/blog\/dotfiles\/",
-      "wordCount" : "99",
+      "wordCount" : "145",
       "keywords" : ["Blog"]
     }
   
@@ -110,29 +110,59 @@
           <article class="post__content">
               
 <p><img src="/ss.png" alt="machfiles image"></p>
-<p>!! Warning, this only works on ubuntu/debain distributions. It has been tested on ubuntu 20.04 only! <br>
-!! Other people can inspect and manually copy the elements of the files!</p>
-<h2 id="installation">Installation<a class="anchor" href="#installation">#</a></h2>
-<p>You will need <code>make</code></p>
+<h2 id="installing">Installing<a class="anchor" href="#installing">#</a></h2>
+<p>!!! Note: We have a separate branch for mac install. Please check that out for macOS.</p>
 <p>Clone into your <code>$HOME</code> directory or <code>~</code></p>
 <pre><code class="language-bash">git clone https://github.com/sdatth/dotfiles.git $HOME/
 # OR
 git clone https://gitlab.com/sdatth/dotfiles.git $HOME/
 </code></pre>
-<p>Run the make command to get my configuration</p>
-<pre><code class="language-bash">cd dotfiles
-make install
+<h3 id="for-linux-distros">For Linux Distros<a class="anchor" href="#for-linux-distros">#</a></h3>
+<p>You will need <code>make</code></p>
+<p>Run the command to install necessary packages and get my config files for your linux distribution</p>
+<pre><code class="language-bash">make [arch|debian|ubuntu|rhel]
 </code></pre>
-<p>Compile alacritty from scratch</p>
-<pre><code class="language-bash"># this just follows all the steps from the official repo &quot;https://github.com/alacritty/alacritty&quot;
-make alacritty
+<h3 id="for-freebsd">For FreeBSD<a class="anchor" href="#for-freebsd">#</a></h3>
+<p>You will need <code>gmake</code></p>
+<p>Run the command to install necessary packages and get my config files for FreeBSD</p>
+<pre><code class="language-bash">gmake freebsd
 </code></pre>
-<p>Copy the config files without symlinks</p>
-<pre><code class="language-bash">make copy
-</code></pre>
+<h3 id="help">Help<a class="anchor" href="#help">#</a></h3>
 <p>Use the help recipe to see available options</p>
 <pre><code class="language-bash">make help
 </code></pre>
+<h4 id="note-important">Note Important:</h4>
+<p>Support for Arm64 is in the roadmap</p>
+<p>This script will install files from</p>
+<ul>
+<li>zsh-autosuggestions plugin          : <a href="https://github.com/zsh-users/zsh-autosuggestions" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>https://github.com/zsh-users/zsh-autosuggestions</a></li>
+<li>zsh-syntax-highlighting plugin      : <a href="https://github.com/zsh-users/zsh-syntax-highlighting" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>https://github.com/zsh-users/zsh-syntax-highlighting</a></li>
+<li>zsh-history-substring-search plugin : <a href="https://github.com/zsh-users/zsh-history-substring-search" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>https://github.com/zsh-users/zsh-history-substring-search</a></li>
+</ul>
+<p>This repo contains code/files from other repo, they are the original authors for this</p>
+<ul>
+<li>Vim Plug        : <a href="https://github.com/junegunn/vim-plug" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>https://github.com/junegunn/vim-plug</a></li>
+<li>Nerd Fonts      : <a href="https://www.nerdfonts.com/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>https://www.nerdfonts.com/</a></li>
+<li>Autojump plugin : <a href="https://github.com/wting/autojump" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>https://github.com/wting/autojump</a></li>
+</ul>
 
 
               
@@ -204,7 +234,7 @@ make alacritty
    
 
   
-  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

@@ -11,6 +11,8 @@ baseURL = "https://srikanta.me"
 # relativeURLs = false
 # uglyURLs = true 
 
+# publish 
+publishDir = "docs"
 
 # Add your Disqus shortname here.
 #disqusShortname = "Srikanta"

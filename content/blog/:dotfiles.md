@@ -11,12 +11,9 @@ toc: false
 
 ![machfiles image](/ss.png)
 
-!! Warning, this only works on ubuntu/debain distributions. It has been tested on ubuntu 20.04 only! <br> 
-!! Other people can inspect and manually copy the elements of the files! 
+## Installing
 
-## Installation
-
-You will need `make` 
+!!! Note: We have a separate branch for mac install. Please check that out for macOS.
 
 Clone into your `$HOME` directory or `~`
 
@@ -26,24 +23,42 @@ git clone https://github.com/sdatth/dotfiles.git $HOME/
 git clone https://gitlab.com/sdatth/dotfiles.git $HOME/
 ```
 
-Run the make command to get my configuration
+### For Linux Distros
+
+You will need `make` 
+
+Run the command to install necessary packages and get my config files for your linux distribution
 ```bash
-cd dotfiles
-make install
+make [arch|debian|ubuntu|rhel]
 ```
 
-Compile alacritty from scratch
+### For FreeBSD
+
+You will need `gmake` 
+
+Run the command to install necessary packages and get my config files for FreeBSD
 ```bash
-# this just follows all the steps from the official repo "https://github.com/alacritty/alacritty"
-make alacritty
+gmake freebsd
 ```
 
-Copy the config files without symlinks
-```bash
-make copy
-```
+### Help
 
 Use the help recipe to see available options
 ```bash
 make help
 ```
+
+
+#### Note Important:
+
+Support for Arm64 is in the roadmap
+
+This script will install files from 
+- zsh-autosuggestions plugin          : https://github.com/zsh-users/zsh-autosuggestions
+- zsh-syntax-highlighting plugin      : https://github.com/zsh-users/zsh-syntax-highlighting
+- zsh-history-substring-search plugin : https://github.com/zsh-users/zsh-history-substring-search
+
+This repo contains code/files from other repo, they are the original authors for this
+- Vim Plug        : https://github.com/junegunn/vim-plug
+- Nerd Fonts      : https://www.nerdfonts.com/
+- Autojump plugin : https://github.com/wting/autojump

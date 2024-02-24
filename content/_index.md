@@ -1,5 +1,5 @@
 ---
 heading: "Hi, I'm Srikanta"
-subheading: "Network Enthusiast & Investor"
+subheading: "Linux Enthusiast & Investor"
 handle: "sdatth"
 ---
