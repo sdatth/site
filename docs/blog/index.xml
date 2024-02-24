@@ -6,8 +6,15 @@
     <description>Recent content in Blogs on srikanta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Aug 2021 13:06:28 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://srikanta.me/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>:gpg guide</title>
+      <link>https://srikanta.me/blog/gpg/</link>
+      <pubDate>Sat, 24 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://srikanta.me/blog/gpg/</guid>
+      <description>gpg short notations # -a --armor # -b --detach-sign # -d --decrypt # -e --encrypt # -k --list-keys # -K --list--secret-keys # -o --output # -r --recipient # -s --sign commands # generating key gpg --full-generate-key ## listing keys gpg --list-keys gpg --list-secret-keys gpg --list-keys --keyid-format long gpg --list-sigs # list signatures gpg --fingerprint # list fingerprints gpg --fingerprint --fingerprint # editing keys gpg --edit-key &amp;lt;key-id&amp;gt; # backup gpg --export-secret-keys --output private-key.</description>
+    </item>
     <item>
       <title>:dotfiles</title>
       <link>https://srikanta.me/blog/dotfiles/</link>

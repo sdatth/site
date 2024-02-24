@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <title>:dotfiles | srikanta</title>
+  <title>:gpg guide | srikanta</title>
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
@@ -49,8 +49,8 @@
             "@id": "https:\/\/srikanta.me\/"
       },
       "articleSection" : "blog",
-      "name" : ":dotfiles",
-      "headline" : ":dotfiles",
+      "name" : ":gpg guide",
+      "headline" : ":gpg guide",
       "description" : "",
       "inLanguage" : "en-US",
       "author" : "",
@@ -58,11 +58,11 @@
       "publisher": "",
       "accountablePerson" : "",
       "copyrightHolder" : "",
-      "copyrightYear" : "2021",
-      "datePublished": "2021-08-19 13:06:28 \u002b0530 IST",
-      "dateModified" : "2021-08-19 13:06:28 \u002b0530 IST",
-      "url" : "https:\/\/srikanta.me\/blog\/dotfiles\/",
-      "wordCount" : "145",
+      "copyrightYear" : "2024",
+      "datePublished": "2024-02-24 00:00:00 \u002b0000 UTC",
+      "dateModified" : "2024-02-24 00:00:00 \u002b0000 UTC",
+      "url" : "https:\/\/srikanta.me\/blog\/gpg\/",
+      "wordCount" : "271",
       "keywords" : ["Blog"]
     }
   
@@ -104,65 +104,91 @@
       <div class="post__container">
         <div class="post">
           <header class="post__header">
-            <h1 id="post__title">:dotfiles</h1>
-            <time datetime="2021-08-19 13:06:28 &#43;0530 IST" class="post__date">Aug 19 2021</time> 
+            <h1 id="post__title">:gpg guide</h1>
+            <time datetime="2024-02-24 00:00:00 &#43;0000 UTC" class="post__date">Feb 24 2024</time> 
           </header>
           <article class="post__content">
               
-<p><img src="/ss.png" alt="machfiles image"></p>
-<h2 id="installing">Installing<a class="anchor" href="#installing">#</a></h2>
-<p>!!! Note: We have a separate branch for mac install. Please check that out for macOS.</p>
-<p>Clone into your <code>$HOME</code> directory or <code>~</code></p>
-<pre><code class="language-bash">git clone https://github.com/sdatth/dotfiles.git $HOME/
-# OR
-git clone https://gitlab.com/sdatth/dotfiles.git $HOME/
+<h1 id="gpg">gpg</h1>
+<h2 id="short-notations">short notations<a class="anchor" href="#short-notations">#</a></h2>
+<pre><code class="language-bash"># -a  --armor
+# -b  --detach-sign
+# -d  --decrypt
+# -e  --encrypt
+# -k  --list-keys
+# -K  --list--secret-keys
+# -o  --output
+# -r  --recipient
+# -s  --sign
 </code></pre>
-<h3 id="for-linux-distros">For Linux Distros<a class="anchor" href="#for-linux-distros">#</a></h3>
-<p>You will need <code>make</code></p>
-<p>Run the command to install necessary packages and get my config files for your linux distribution</p>
-<pre><code class="language-bash">make [arch|debian|ubuntu|rhel]
+<br> 
+<h2 id="commands">commands<a class="anchor" href="#commands">#</a></h2>
+<pre><code class="language-bash"># generating key
+gpg --full-generate-key
+
+## listing keys
+gpg --list-keys
+gpg --list-secret-keys
+gpg --list-keys --keyid-format long
+gpg --list-sigs   # list signatures
+gpg --fingerprint # list fingerprints
+gpg --fingerprint --fingerprint
+
+# editing keys
+gpg --edit-key &lt;key-id&gt;
+
+# backup
+gpg --export-secret-keys --output private-key.asc --armor &lt;key-id&gt;
+gpg --export --armor --output some-public.key &lt;key-id&gt;
+
+# importing
+gpg --import some.key
+
+## encrypting &amp; decrypting a file
+# short version
+gpg -e -r &lt;key-id&gt; &lt;file&gt;
+gpg -e -a -r &lt;key-id&gt; &lt;file&gt;  # for armor version
+gpg -o &lt;file.asc&gt; -e -a -r &lt;key-id&gt; &lt;file&gt;
+
+# long version
+gpg --encrypt --recipient &lt;key-id&gt; &lt;file&gt;
+gpg --encrypt --armor --recipient &lt;key-id&gt; &lt;file&gt;
+gpg --output &lt;file&gt; --encrypt --armor --recipient &lt;key-id&gt; &lt;file&gt;
+
+# decrypting a file
+gpg -d &lt;file&gt; &gt; file
+
+## signing files
+# detach sign
+gpg --armor --detach-sign &lt;file&gt;  # long version
+gpg -a -b &lt;file&gt;                  # short version
+
+# verifying detached sign 
+gpg --verify &lt;signed-file&gt;
+gpg --verify &lt;detached-signature-file&gt; &lt;corresponding-content-file&gt;
+
+# normal sign (the file is embedded in the signature file) 
+# data can be extracted using public keys by anyone
+gpg --armor --sign --recipient &lt;key-id&gt; &lt;file&gt;
+gpg -a -s &lt;file&gt;
+gpg --output &lt;file&gt; --armor --sign --recipient &lt;key-id&gt; &lt;file&gt;
+gpg -o &lt;file&gt; -a -s -r &lt;key-id&gt; &lt;file&gt;
+
+# verifiying normal sign
+gpg --verify &lt;signed-file&gt; 
+
+# to extract file from a signature (only possible in normal sign)
+gpg -d &lt;signed-file&gt; &gt; file   
+
+# misc 
+# deleting
+gpg --delete-keys &lt;key ID&gt;
+gpg --delete-secret-keys &lt;key ID&gt;
+
+# signing others public key
+gpg --sign-key &lt;key ID&gt;
 </code></pre>
-<h3 id="for-freebsd">For FreeBSD<a class="anchor" href="#for-freebsd">#</a></h3>
-<p>You will need <code>gmake</code></p>
-<p>Run the command to install necessary packages and get my config files for FreeBSD</p>
-<pre><code class="language-bash">gmake freebsd
-</code></pre>
-<h3 id="help">Help<a class="anchor" href="#help">#</a></h3>
-<p>Use the help recipe to see available options</p>
-<pre><code class="language-bash">make help
-</code></pre>
-<h4 id="note-important">Note Important:</h4>
-<p>Support for Arm64 is in the roadmap</p>
-<p>This script will install files from</p>
-<ul>
-<li>zsh-autosuggestions plugin          : <a href="https://github.com/zsh-users/zsh-autosuggestions" 
-  
-   target="_blank" rel="noreferrer noopener" 
->https://github.com/zsh-users/zsh-autosuggestions</a></li>
-<li>zsh-syntax-highlighting plugin      : <a href="https://github.com/zsh-users/zsh-syntax-highlighting" 
-  
-   target="_blank" rel="noreferrer noopener" 
->https://github.com/zsh-users/zsh-syntax-highlighting</a></li>
-<li>zsh-history-substring-search plugin : <a href="https://github.com/zsh-users/zsh-history-substring-search" 
-  
-   target="_blank" rel="noreferrer noopener" 
->https://github.com/zsh-users/zsh-history-substring-search</a></li>
-</ul>
-<p>This repo contains code/files from other repo, they are the original authors for this</p>
-<ul>
-<li>Vim Plug        : <a href="https://github.com/junegunn/vim-plug" 
-  
-   target="_blank" rel="noreferrer noopener" 
->https://github.com/junegunn/vim-plug</a></li>
-<li>Nerd Fonts      : <a href="https://www.nerdfonts.com/" 
-  
-   target="_blank" rel="noreferrer noopener" 
->https://www.nerdfonts.com/</a></li>
-<li>Autojump plugin : <a href="https://github.com/wting/autojump" 
-  
-   target="_blank" rel="noreferrer noopener" 
->https://github.com/wting/autojump</a></li>
-</ul>
+<br>
 
 
               
@@ -171,12 +197,12 @@ git clone https://gitlab.com/sdatth/dotfiles.git $HOME/
 
  <div class="pagination">
   
-
-  
-    <a class="pagination__item" href="https://srikanta.me/blog/gpg/">
-      <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >:gpg guide</span>
+    <a class="pagination__item" href="https://srikanta.me/blog/dotfiles/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">:dotfiles</span>
     </a>
+  
+
   
 </div>
 
